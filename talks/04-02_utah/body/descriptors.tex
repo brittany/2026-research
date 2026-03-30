@@ -1,0 +1,119 @@
+\section{More Descriptors}
+
+\frame{
+    \begin{block}{}
+       \centering
+        That's nice, but ... \pause
+        what else can we do?
+    \end{block}
+}
+
+\frame{
+    \frametitle{Transform to `Nicer' Spaces}
+
+    \begin{block}{}
+        \centering
+        \only<1>{\includegraphics[height=2.5in]{pd-search/dgm-set}}%
+        \only<2->{\includegraphics[height=2.5in]{pd-search/dgm-to-fcns}}%
+    \end{block}
+}
+
+\frame{
+    \frametitle{Some Other Spaces ...}
+
+    \begin{columns}
+        \column{.32\textwidth}
+        \begin{block}{Diagram}
+            \centering
+            {\includegraphics[height=.85in]{stat/persistence-imagedgm}}%
+        \end{block}
+        \pause
+        \begin{block}{Landscapes}
+            \centering
+            {\includegraphics[height=.85in]{stat/persistence-all-landscapes}}%
+        \end{block}
+        \column{.32\textwidth}
+        \pause
+        \begin{block}{Images}
+            \centering
+            {\includegraphics[height=.85in]{stat/persistence-image}}%
+        \end{block}
+        \pause
+        \begin{block}{Silhouette}
+            \centering
+            {\includegraphics[height=.85in]{stat/persistence-silhouette}}%
+        \end{block}
+
+        \column{.32\textwidth}
+        \pause
+        \begin{block}{Betti Function}
+            \centering
+            {\includegraphics[height=.85in]{stat/persistence-betti}}%
+        \end{block}
+        \pause
+        \begin{block}{Euler Char.~Fcn}
+            \centering
+            {\includegraphics[height=.85in]{stat/persistence-ecc}}%
+        \end{block}
+    \end{columns}
+}
+
+\frame{
+    \frametitle{Some References ...}
+
+    \small
+
+    \begin{enumerate}
+
+        \item Fr\'echet Mean: Turner, K., Mileyko, Y., Mukherjee, S., \& Harer,
+            J. (2014). Fréchet means for distributions of persistence diagrams.
+            Discrete \& Computational Geometry, 52(1), 44-70.
+
+        \item Images: Adams, Emerson, Kirby, Neville, Peterson,
+            Shipman, Chepushtanova, Hansen, Motta, \& Ziegelmeier. (2017). Persistence images: A
+            stable vector representation of persistent homology. Journal of
+            Machine Learning Research, 18.
+
+        \item Landscapes: Bubenik (2015). Statistical topological data analysis using
+            persistence landscapes. J. Mach. Learn. Res., 16(1), 77-102.
+
+        \item Silhouettes: Chazal, Fasy, Lecci, Rinaldo, \& Wasserman, (2014,
+            June). Stochastic convergence of persistence landscapes and
+            silhouettes. In Proc.\ 13th Annual Symposium on
+            Computational Geometry (pp. 474-483).
+
+        \item Functional Summaries: Berry, Chen, Cisewski-Kehe, \& Fasy. (2020).
+            Functional summaries of persistence diagrams. Journal of Applied and
+            Computational Topology, 4(2), 211-262.
+
+    \end{enumerate}
+}
+
+\begin{frame}
+    \frametitle{Silhouettes}
+    \framesubtitle{Experimental Set-Up}
+
+    \begin{block}{}
+        \begin{itemize}
+            \item Training data: $2$k `glands', $500$ of each type\footnote{
+                    Gland and slide simulator will be released soon; email if
+                    interested! Brown, Fasy, Fox, Shenfisch, Schupbach, and Quist.}\pause
+            \item Distance / DTM filtration\pause
+            \item Silhouette, $p=1$\pause
+            \item Test set: $400$, with $100$ of each type
+            \item knn classification, with $k=3$
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}<1->[label=simulated]
+    \frametitle{Silhouettes}
+    \framesubtitle{Results}
+
+    \begin{block}{Berry et al. 2020}
+        \centering
+        \only<1>{\includegraphics[height=2.25in]{gleason/sil-mds-input}}
+        \only<2->{\includegraphics[height=2.25in]{gleason/sil-mds}}
+    \end{block}
+\end{frame}

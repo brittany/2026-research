@@ -1,0 +1,353 @@
+\frame{
+    \begin{block}{Working with Diagrams Directly:}
+    Near Neighbor Search
+    \end{block}
+}
+
+\frame{
+    \frametitle{Nearest Neighbor Search}
+\begin{block}{}
+    \centering
+    \onslide<3->{\includegraphics[height=2in]{pd-search/dgm-query}}
+    \quad\quad
+    \only<1>{\includegraphics[height=2in]{pd-search/dgm-songs}}%
+    \only<2->{\includegraphics[height=2in]{pd-search/dgm-set}}%
+\end{block}
+
+}
+
+
+%new version first, then old
+\frame{
+    \frametitle{Problem Setup}
+
+    \begin{columns}
+        \column{.45\textwidth}
+        \begin{block}{}
+            \centering
+            \onslide<3->{\includegraphics[height=1in]{pd-search/dgm-query}}
+            \quad\quad
+            \only<1>{\includegraphics[height=1in]{pd-search/dgm-songs}}%
+            \only<2->{\includegraphics[height=1in]{pd-search/dgm-set}}%
+        \end{block}
+
+        \column{.45\textwidth}
+        \begin{block}{}
+            \begin{itemize}
+                \item \only<2->{\st}{Given data} \pause
+                \item Given a set of diagrams $\Gamma$ \pause
+                \item and a query diagram $Q$ \pause
+                \item Find $Q' \in \Gamma$ minimizing $$d_{\infty}(Q,Q')$$
+            \end{itemize}
+        \end{block}
+
+    \end{columns}
+}
+
+\frame{
+    \frametitle{A Tried and True Way}
+    \onslide<2->{\framesubtitle{... in Nice Enough Spaces}}
+
+    \begin{columns}
+        \column{.45\textwidth}
+            \only<1>{\includegraphics[height=2in]{pd-search/nice-search-0}}%
+            \only<2>{\includegraphics[height=2in]{pd-search/nice-search-1}}%
+            \only<3>{\includegraphics[height=2in]{pd-search/nice-search-2}}%
+            \only<4>{\includegraphics[height=2in]{pd-search/nice-search-3}}%
+            \only<5>{\includegraphics[height=2in]{pd-search/nice-search-4}}%
+            \only<6>{\includegraphics[height=2in]{pd-search/nice-search-5}}%
+            \only<7>{\includegraphics[height=2in]{pd-search/nice-search-6}}%
+            \only<8>{\includegraphics[height=2in]{pd-search/nice-search-7}}%
+            \only<9>{\includegraphics[height=2in]{pd-search/nice-search-8}}%
+            \only<10>{\includegraphics[height=2in]{pd-search/nice-search-9}}%
+            \only<11>{\includegraphics[height=2in]{pd-search/nice-search-10}}%
+            \only<12->{\includegraphics[height=2in]{pd-search/nice-search-found}}%
+        \column{.45\textwidth}
+        \onslide<13->{
+        \begin{block}{}
+            Exponential in the DD.\\
+            \onslide<14->{
+                Recall: $\mathbb{D}_M^m$ has infinite DD.}\\
+            \onslide<15->{$\implies$ not for PersDgms!\\ }
+        \end{block}
+        \onslide<16->{
+            \begin{block}{}
+                    In practice: just linear search.\\
+            \end{block}
+        }
+    }
+    \end{columns}
+}
+
+
+
+\frame{
+    \frametitle{Near Neighbor Search}
+
+\begin{columns}
+    \column{.5\textwidth}
+   \begin{block}{Nearest Neighbor}
+       Given: $\mathcal{D}$ and $Q$, find:
+        $$ {\color{blue} Q_{NN}} := \arg\min_{Q' \in \mathcal{D}} d(Q,Q').$$
+    \end{block}
+    \pause
+    \begin{block}{Approximate Nearest Neighbor}
+        Find some $\widetilde{Q} \in \mathcal{D}$ such that:
+        $$d({\color{blue} Q_{NN}},Q) \leq d(\widetilde{Q},Q)
+        \leq {\color{red} c}\cdot d({\color{blue} Q_{NN}},Q)$$
+    \end{block}
+
+    \column{.45\textwidth}
+    \pause
+      \begin{block}{Considerations}
+          \begin{itemize}
+              \item Want: $ {\color{red} c}$ small
+              \pause \item Query time
+              \pause \item Size of data structure
+              \pause \item Precomputation time
+          \end{itemize}
+      \end{block}
+
+\end{columns}
+}
+
+\section{Searching for Near Neighbors}
+
+\frame{
+     \frametitle{Related Work [Driemel and Silvestri, SoCG 2017]}
+
+     \begin{block}{Locality Sensitive Hashing of Curves}
+         \includegraphics[width=\textwidth]{pd-search/driemel.png}
+     \end{block}
+}
+
+\frame[label=firstAttempt]{
+     \frametitle{First Attempt}
+     \framesubtitle{Inspired by Locality Sensitive Hashing (LSH)}
+
+     \begin{block}{Probabilistic Near Neighbor}
+         With high probability, we find a near-neighbor using
+         \begin{itemize}
+             \item $O(2^{12m} m \log n + 2^{12m} \log^2 n)$ time.
+             \item $O(2^{12m} n \log n + nm)$ space.
+             \item $O(UGLY)$ precomputation.
+             \item Approximation factor: $ {\color{red} c} =8 \sqrt{2} \approx 11.3$.
+         \end{itemize}
+     \end{block}
+ }
+
+
+
+\frame{
+    \frametitle{Locality Sensitive Hashing}
+
+    \begin{block}{}
+        \centering
+        Hashing $\implies$ probabilistic\\ \pause
+        What if ... we lose the randomness?
+    \end{block}
+}
+
+
+\frame[label=dsNalgo]{
+    \frametitle{Overview of Data Structure and Algorithm}
+    \begin{columns}
+        \column{.45\textwidth}
+        \begin{block}{Data Structure / Precomputation}
+            \begin{itemize}
+                \item $\tau$ levels.
+                \item Increase level, increase resolution.
+                \item At each level $i$,
+                    \begin{itemize}
+                        \item $O(5^m)$ snap-roundings of each $P \in \mathcal{D}$.
+                        \item Compute key for each.
+                        \item Sort keys.
+                    \end{itemize}
+            \end{itemize}
+        \end{block}
+
+
+
+        \column{.5\textwidth}
+        \pause
+        \begin{block}{Algorithm}
+            \begin{enumerate}
+                \item Binary search levels to find lowest collision. At each level $i$:
+                    \begin{itemize}
+                        \item Compute key $\kappa_i(Q)$.
+                        \item Search level for collision.
+                        \item If collides, down. Else, stop.
+                    \end{itemize}
+                \item Choose any diagram in last bin.
+            \end{enumerate}
+        \end{block}
+    \end{columns}
+}
+
+\frame<8>[label=dgmsearch]{
+    \frametitle{Snap-Rounding Persistence Diagram}
+    \onslide<3->{\frametitle{Search for Near Persistence Diagram}}
+
+    \centering
+    % \only<1>{
+    %     \includegraphics[width=\textwidth]{pd-search/example-diagrams}}%
+    % \only<2>{
+    %     \includegraphics[width=\textwidth]{pd-search/example-snapping}}%
+    \only<3>{
+        \includegraphics[width=\textwidth]{pd-search/data-structure-level-1}}%
+    \only<4>{
+        \includegraphics[width=\textwidth]{pd-search/data-structure-level-2}}%
+    \only<5>{
+        \includegraphics[width=\textwidth]{pd-search/data-structure-level3-nox}}%
+    \only<6>{
+        \includegraphics[width=\textwidth]{pd-search/data-structure-level-3}}%
+    \only<7>{
+        \includegraphics[width=\textwidth]{pd-search/data-structure-level-4}}%
+    \only<8->{
+        \includegraphics[height=3in]{pd-search/data-structure}}%
+}
+
+
+
+\frame<2->{
+    \frametitle{Compute Keys}
+
+    \begin{block}{}
+        \begin{columns}
+            \column{.5\textwidth}
+            \begin{itemize}
+                \item $P$ is a point cloud.
+                \item Consider $\eta \times \eta$ square lattice $\mathcal{L}$.
+                \item Snap points in $P$ to $\mathcal{L}$.
+                \item Compute count vector.
+            \end{itemize}
+
+            \column{.5\textwidth}
+            \centering
+            \only<2>{\includegraphics[height=2in]{pd-search/example-ingridcell}}%
+            \only<3>{\includegraphics[height=2in]{pd-search/example-allsnap}}%
+            \only<4>{\includegraphics[height=2in]{pd-search/example-vec1}}%
+            \only<5>{\includegraphics[height=2in]{pd-search/example-vec2}}%
+            \only<6>{\includegraphics[height=2in]{pd-search/example-vec3}}%
+            \only<7>{\includegraphics[height=2in]{pd-search/example-vec4}}%
+            \\
+            \onslide<4->{$\langle
+            \only<4>{1,0,0,0,0,0,0,0,1}
+            \only<5>{0,1,0,0,0,0,0,0,1}
+            \only<6>{0,0,0,0,2,0,0,0,0}
+            \only<7>{0,0,0,0,1,0,0,0,1}
+            \rangle$}
+        \end{columns}
+        \end{block}
+    }
+
+
+\frame{
+    \frametitle{... What About the Diagonal?}
+
+    \begin{block}{}
+        \centering
+        \only<1>{\includegraphics[height=2.5in]{pd-search/diagram-matching}}%
+        \only<2>{\includegraphics[height=2.5in]{pd-search/diagram-del}}%
+        \only<3>{\includegraphics[height=2.5in]{pd-search/diagram-delmore}}%
+        \only<4->{\includegraphics[height=2.5in]{pd-search/diagram-delpts}}%
+    \end{block}
+}
+
+\frame{
+    \frametitle{Refining Grid}
+    \begin{block}{}
+        \centering
+        \includegraphics[height=2.5in]{pd-search/multiple-resolution}
+    \end{block}
+}
+
+
+\againframe<3->{dgmsearch}
+
+
+
+
+\frame<1->[label=dsproperties]{
+    \frametitle{Properties of the Data Structure for $\mathcal{D}$}
+
+    \begin{columns}
+        \column{.45\textwidth}
+         \begin{block}{Collision}
+             If $d(P,Q) \leq \frac{1}{2}\delta_i$, then
+             $Q$ collides with $P$ at level $i$.
+         \end{block}
+         \column{.45\textwidth}
+         \onslide<2->{
+             \begin{block}{No Collision}
+                 If $d(P,Q) > \frac{3}{2}\delta_i$, then
+                 $Q$ does not collide with $P$ at level $i$.
+             \end{block}
+
+
+    }
+    \end{columns}
+
+    \onslide<3->{
+    \begin{block}{}
+        \begin{itemize}
+            \onslide<4->{ \item Notice that this is nearly an iff statement.}
+            \onslide<5->{ \item Do we have a heirarchical collision or is
+                there a gap?}
+        \end{itemize}
+
+        \centering
+        \only<1-4>{
+            \includegraphics[height=0.5in]{pd-search/gap-i}}%
+        \only<5->{
+            \includegraphics[height=0.5in]{pd-search/gap}}%
+
+    \end{block}}
+}
+
+\frame<1-4>[label=hcl]{
+    \frametitle{Hierarchical Collision Lemma}
+
+    \begin{block}{Hierarchical Collision Lemma}
+        If \only<1-4>{set} $Q$ collides with $P \in \mathcal{D}$ at level $j$, then
+        $Q$ collides with $P$ for all $i \leq j$.
+    \end{block}
+
+    \onslide<2-4,6-8>{
+    \begin{block}{Proof}
+        Collision at level $j$ $\implies$ matching with cost $\leq
+        \frac{3}{2}\delta_i$
+        \onslide<4,8>{$\implies$ collision at $i$.}
+
+        \centering
+        \only<1-2>{\includegraphics[height=1.5in]{pd-search/hcl-ptcloud-i}}%
+        \only<3>{\includegraphics[height=1.5in]{pd-search/hcl-ptcloud-lower-old}}%
+        \only<4>{\includegraphics[height=1.5in]{pd-search/hcl-ptcloud-lower}}%
+        \only<5-6>{\includegraphics[height=1.5in]{pd-search/hcl-dgm-i}}%
+        \only<7>{\includegraphics[height=1.5in]{pd-search/hcl-dgm-lower-old}}%
+        \only<8>{\includegraphics[height=1.5in]{pd-search/hcl-dgm-lower}}%
+    \end{block}
+    }
+}
+
+
+
+\againframe<5->{hcl}
+
+
+\againframe{firstAttempt}
+\frame[label=results]{
+    \frametitle{Our Result}
+    \framesubtitle{ArXiv 1812.11257}
+
+    \begin{block}{Deterministic Near Neighbor}
+        We find a near-neighbor using
+        \begin{itemize}
+            \item $O((m \log n + m^2)\log \tau)$ time.
+            \item $O(\tau n5^m)$ space.
+            \item $O(\tau nm 5^m \log{n})$ precomputation.
+            \item Approximation factor: $  {\color{red} c}=6$.
+        \end{itemize}
+    \end{block}
+
+}

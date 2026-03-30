@@ -1,0 +1,72 @@
+\begin{tikzpicture}
+\foreach \y in {0,...,3}{
+  \draw[opacity=.5,dotted] (-5.5,\y)--(5.5,\y);
+}
+% barcode
+\begin{scope}[shift={(-.9,0)}]
+\draw[barco] (-.25,1) -- (-.25,2);
+\draw[barcinf] (0,0) -- (0,4);
+\draw[barcinf] (.25,3) -- (.25,4);
+\end{scope}
+
+% axis
+\begin{scope}[shift={(.6,0)}]
+\draw[|->] (0,-.75)--(0,4);
+\node (r) at (0,-1.25) {$\R$};
+\foreach \y\lab in {-.5/{a_0}, .5/{a_1}, 1.5/{a_2}, 2.5/{a_3}, 3.5/{a_4}}{
+  \draw (-.2,\y)--(.2,\y);
+  \node[anchor=west] at (.2,\y) {$\lab$};
+}
+\foreach \y\lab in {0/{t_1}, 1/{t_2}, 2/{t_3}, 3/{t_4}}{
+  \draw (-.2,\y)--(.2,\y);
+  \node[anchor=east,fill=white] at (-.2,\y) {$\lab$};
+}
+\end{scope}
+% left embedding
+\begin{scope}[shift={(\bwid-2.5,0)}]
+\node at (-1*\bwid,-.75) {};
+\draw[fill=newcol] (0,3) arc (90:0:\bwid/2) --++ (270:3-\bwid)
+  arc (0:-180:\bwid/2) --++ (90:2-\bwid)
+  arc (0:180:\bwid/2) --++ (270:1-\bwid)
+  arc (0:-180:\bwid/2) --++ (90:1-\bwid/2)
+  arc (180:90:\bwid) arc (-90:0:\bwid) --++ (90:1-2.5*\bwid)
+  arc (180:90:\bwid/2);
+\foreach \x\y in {0/1.5, 2*\bwid/.5, 2*\bwid/1.5, 2*\bwid/2.6}{
+  \draw (\x-2*\bwid,\y) ellipse (\bwid/2 and \bwid/4);
+}
+\end{scope}
+% right embedding
+\begin{scope}[shift={(1*\bwid+2.5,0)}]
+\node at (-1*\bwid,-.75) {};
+\draw[fill=newcol] (0,3) arc (90:0:\bwid/2) --++ (270:3-2*\bwid)
+  arc (0:-180:1.5*\bwid) --++ (90:2-2*\bwid)
+  arc (180:90:\bwid/2) arc (-90:0:1.5*\bwid) --++ (90:1-2*\bwid)
+  arc (180:90:\bwid/2);
+\draw[fill=newcol!66,dashed] (-2*\bwid,2) arc (90:0:\bwid/2) --++ (270:1-\bwid)
+  arc (-180:0:\bwid/2) --++ (90:1+\bwid)
+  arc (0:-90:1.5*\bwid);
+\foreach \x\y in {\bwid/1.5, 2*\bwid/2.6}{
+  \draw (\x-2*\bwid,\y) ellipse (\bwid/2 and \bwid/4);
+}
+\draw (-\bwid,1.5) ellipse (\bwid*1.5 and .6*\bwid);
+\draw (-\bwid,.5) ellipse (\bwid*1.5 and .6*\bwid);
+\end{scope}
+% % right posets
+% \begin{scope}[shift={(4.5,0)}]
+% \foreach \x\y in {0/-.5, 0/0, -.3/.5, .3/.5, -.3/1, .3/1, -.6/1.5, 0/1.5, .6/1.5, -.6/2, 0/2, .6/2, -.3/2.5, .3/2.5, 0/3, 0/3.5}{
+%   \fill (\x,\y) circle (.07);
+% }
+% \foreach \lev\start\end in {.5/-.3/.3, 1/-.3/.3, 1.5/-.6/0, 1.5/0/.6, 2/-.6/0, 2/0/.6, 2.5/-.3/.3}{
+%   \draw[conx] (\start,\lev)--(\end,\lev);
+% }
+% \end{scope}
+% % left posets
+% \begin{scope}[shift={(-4.5,0)}]
+% \foreach \x\y in {0/-.5, 0/0, -.3/.5, .3/.5, -.3/1, .3/1, -.6/1.5, 0/1.5, .6/1.5, -.6/2, 0/2, .6/2, -.3/2.5, .3/2.5, 0/3, 0/3.5}{
+%   \fill (\x,\y) circle (.07);
+% }
+% \foreach \lev\start\end in {.5/-.3/.3, 1/-.3/.3, 1.5/-.6/0, 1.5/.6/0, 2/-.6/0, 2/.6/0, 2.5/-.3/.3}{
+%   \draw[conx] (\start,\lev)--(\end,\lev);
+% }
+% \end{scope}
+\end{tikzpicture}
