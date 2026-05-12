@@ -1,4 +1,12 @@
-# 
+# Notes from Research Meetings 
+
+## Sush's Presentation on his SoCG Paper
+
+* In R^1: there is a 5/4 approximation, but is it NP-hard to approximate better?
+  (see Majhi, Vitter, Wenk "Approximating GH dist in Euclidean Space")
+* Russian group, ivanov is actively working on some of the open problems.
+* any length space can be approximated by a metric graph via an epsilon-net (in
+  Gromov's book, I think). Any length space is quasi-isometric.
 
 ## HPC Request from John Sheppard
 
