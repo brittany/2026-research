@@ -1,5 +1,11 @@
 # Notes from Research Meetings 
 
+## Sunbethmath
+
+* 27 May 2026
+    - continuous GH
+    - isomorphism classes of our trace categories.
+
 ## Sush's Presentation on his SoCG Paper
 
 * In R^1: there is a 5/4 approximation, but is it NP-hard to approximate better?
