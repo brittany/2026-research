@@ -1,0 +1,135 @@
+\documentclass[11pt]{article}
+
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} 
+
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{framed}
+\usepackage{subfigure}
+
+\title{\textsc{Response to Reviewers}\\ \medskip \Large{\textit{Computers and Fluids Manuscript CAF-D-26-00636}} \\ 
+  \medskip \large{\textbf{``Geometric and Topological Data Analysis of Atomization Simulations for Model Development''}}}
+
+\author{Brendan V. Christensen, Jack Ruder, Alex McCleary,\\ Brittany Terese-Fasy, and Mark Owkes}
+
+
+\begin{document}
+\maketitle
+
+\vspace{0.5cm}
+
+We would like to thank the reviewers for taking their personal time to read and provide feedback on our manuscript. The critiques provided allow us to improve the communication of our work in this paper. We have modified the original manuscript (in red) and detailed justifications for the changes can be found below. 
+
+\subsection*{Response to reviewer \#1's  comments}
+
+\subsubsection*{Comment \#1: Choice of flow information in the DIWECT}
+\begin{quote}
+{\it ``The use of the interface-normal velocity as the weighting function in the DIWECT is an interesting and physically motivated choice, since the normal velocity directly governs local interface motion. However, the manuscript does not sufficiently justify whether this quantity alone provides an adequate description of the surrounding flow for future predictive modeling. Many atomization problems, particularly those involving externally imposed flows such as the turbulent crossflow considered in the present study, depend not only on the instantaneous interface-normal velocity but also on tangential motion, local shear, strain rate, and other characteristics of the surrounding flow. It would therefore be helpful for the authors to discuss the physical rationale for selecting only the normal velocity, what flow information is intentionally discarded, and the expected limitations of the resulting descriptor. Furthermore, the current demonstrations primarily validate the geometric component of the DIWECT through shape matching and clustering. It remains unclear how much additional flow information is contributed by the velocity weighting itself. The paper would be strengthened by discussing this point, or, if possible, by comparing the weighted and unweighted descriptors (e.g., DIWECT versus ECT/WECT) to illustrate the benefit of including the normal velocity.''}
+\end{quote}
+
+We thank the reviewer for this thoughtful comment. We agree that the surrounding flow field involves tangential motion, shear, and strain that are not directly represented by the interface-normal velocity and we have expanded the manuscript to expand the rationale and state the limitations in this choice. In summary, the DIWECT relies on a scalar weight on each simplex, so the full velocity vector cannot be used directly. A physically motivated scalar had to be chosen, and we selected the normal component of the interface normal, because it is most directly relevant to interface deformation and therefore breakup. We recognize that this value does not fully describe the flow field, but we believe the trade-off between a compact description and a physically meaningful value is obtained.
+
+To justify that the interface normal is physically meaningful, we added an analysis in Section 4.3, which separates out the velocity variables and shape variables when running the PERMANOVA. These results show the DIWECT is capable of distinguishing differences in the slip velocities around droplets. This analysis also highlights that the geometry is the primary distinguishing feature captured by the DIWECT and velocity is secondary. This is a useful result and we appreciate the opportunity to strengthen our manuscript with it. 
+
+While we acknowledge that comparing the DIWECT to an unweighted version would be a useful exercise, regenerating this quantity on the roughly 120,000 extracted droplets is unfortunately not feasible within the revision period. We have noted that this is an area for future work. 
+
+\subsubsection*{Comment \#2: Clarification of the numerical test case}
+\begin{quote}
+{\it ``The demonstration is based on a high-speed external-flow breakup case with a reported Weber number of approximately 825. Under such conditions, atomization is expected to involve complex deformation and sheardriven breakup over a broad range of spatial scales. The manuscript reports a resolution of 150 cells across the initial droplet diameter but does not discuss whether this resolution is sufficient to fully resolve the breakup mechanisms of interest. Since the objective of this work is to build databases for future reduced-order models, the quality of the extracted geometries depends directly on the fidelity of the underlying simulation.
+
+I recommend that the authors explicitly discuss the limitations associated with the present numerical resolution. In particular,
+
+\begin{itemize}
+    \item whether the current mesh is expected to fully resolve the relevant breakup physics,
+    \item how unresolved small-scale breakup may influence the extracted geometries and the resulting DIWECT descriptors,
+    \item and how future improvements in simulation fidelity may improve the proposed database.
+\end{itemize}
+
+The current simulation should be viewed as one numerical realization of atomization rather than a complete representation of all physical breakup processes, and this limitation should be acknowledged more explicitly. In addition, the manuscript would benefit from clarification of the computational domain and the treatment of droplets after breakup. Do child droplets leave the computational domain, or are periodic boundaries employed? How long is each droplet tracked, and what criteria determine the duration of measurements stored in the database?''}
+\end{quote}
+
+We thank the reviewer for these points, which allows us to clarify the scope of the present work and the usefulness of our methodology on a range of DNS resolutions. We emphasize that this paper is a proof of concept of a new extraction and analysis methodology, not an attempt to construct a production database for model development from this particular test case. The simulation was selected because it produced a large population of droplets ($\approx 120000$) relatively quickly. With that many droplets, we were able to demonstrate droplet comparison methods with the DIWECT with statistical relevance. These comparisons happen \textit{within} the single dataset, which allows them to evaluate the DIWECT methodology itself and do not require that every breakup scale be fully resolved.
+
+Regarding the specific points:
+\begin{itemize}
+    \item We agree the manuscript should be explicit that the present simulation does not fully resolve all breakup physics and we've added some wording to section 4.1 to address this. The current case is comparable to other recent atomization DNS studies, but, like other studies, we cannot expect to fully resolve the smallest scales.
+    \item The influence of under-resolution on the DIWECT vectorization is discussed in the limitations portion of the Conclusions. The most significant limitation is with small droplets at the point of breakup, which can be represented as gaps in the interface reconstruction. The DIWECT is sensitive to these, and this has been noted as an area for future work. Over the whole simulation, however, the net effect of under-resolution is in the final population of droplets, which as noted above is not an issue for the present work. This database is intended to demonstrate capability of the methodology and not as a method to predict real physics.
+    \item Because the methodology is independent of the fidelity of the input simulation, improvements in numerical methods and resolution will result in improved databases from this method. This is a property we consider a strength in this approach, and we agree that a database intended for predictive model development must be built from simulations resolved to a sufficient standard. Text has been added to Section 4.1 and the Conclusions stating this point explicitly.  
+\end{itemize}
+
+Regarding the computational domain and droplet treatement: child droplets exit the domain at any of the walls. They are tracked from formation (upon primary breakup) until they leave the domain. We have added text in section 4.1 to address these points.
+
+\subsubsection*{Minor Comments}
+\begin{quote}
+    {1. \it``The section title “Project Outline and Scope” is more appropriate for a project report than a journal article. A title such as “Methodology Overview” would be more suitable.''}
+\end{quote}
+
+We agree with this point and have changed the title.
+
+\begin{quote}
+    {2. \it``In the literature review, the authors state: 
+    
+    “To the authors’ best knowledge, this is the only topological analysis of liquid structure geometries in multiphase flows.” 
+    
+    This statement should be updated. The following recent work also performs topological analysis of droplet morphology in aerodynamic breakup using skeleton-based representations: 
+    
+    Garcia, S. G. and Ling, Y., Characterizing drop morphology evolution in aerodynamic breakup with topological skeleton, Computers \& Fluids, 304, 106894 (2026). 
+    
+    The discussion of previous work should be revised accordingly.''}
+\end{quote}
+
+We thank you for bringing this to our attention and we have added this citation.
+
+\subsection*{Response to reviewer \#2's  comments}
+
+\subsubsection*{Comment \#1}
+\begin{quote}
+    {\it``The biggest concern from the reviewer is that with only limited results, the authors did not convince the readers the performance of the method. More specifically, the authors need more qualitative or quantitative results to show that DIWECT is powerful enough to charaterize the drops and their surrounding flow fields with compressed information. For example, to what extent one could reconstruct the original droplet topology and flow fields based on the DIWECT information?''}
+\end{quote}
+
+We thank the reviewer for this comment. We first emphasize the strength of the PERMANOVA analysis, which was expanded in this revision. This is a non-trivial validation, because the clusters are formed exclusively from distances in DIWECT-space, with no access to any physical quantities, yet they are shown to be statistically different populations ($p<0.001$) with respect to volume, aspect ratio, and slip velocities, all of which were measured independently from the simulation. In other words, sorting 100,000+ droplets by their compressed vector descriptions alone recovers physically meaningful groupings. We have added to this section in this revision to show that the clusters are physically distinct based on both geometry and their slip velocities independently, which shows that the DIWECT vectors retain both shape and flow-field information. To our knowledge, this is the first quantitative description of droplet populations from high-fidelity simulations characterized in this way. 
+
+Regarding the reconstruction: the weighted Euler characteristic transform is injective, meaning that with sufficiently dense sampling of directions and heights, the WECT can be used to reconstruct the original shape and weights. We have added text to section 3.3 to explicitly state this point.
+
+\begin{quote}
+    {\it ``Secondly, just by looking at figure 12 and 13 which have similar drop topologies and flow characters, readers are not convinced that the method can classify the special breakup events in details. The reviewer think the authors need to show the DNS results of two different breakup events and to see if the compressed information is able to distinguish them.''}
+\end{quote}
+
+We thank the reviewer for this comment, which indicates we should clarify the intents of Figures 12-13. The visual similarity of droplets in Figure 13 deliberately shows three subsets that are geometrically similar. They were likely clustered into different groups based something beyond their geometry. We added additional analysis to the PERMANOVA to show that the velocity field does impact the DIWECT and therefore the clustering. This demonstrates that the DIWECT can distinguish droplets by their surrounding flow even when shape alone cannot, which shows promise for classifying breakup events, which depend on the shape and the flow. We have added text to section 4.3 to make the intent of figure 13 explicit. 
+
+To address the second point, we note that with this method a breakup event is represented implicitly, as the transition between two states. The DIWECT describes a dropelt and its flow field at an instant, and the parent-child genealogy stored in the database (Fig. 1) links the states before and after each breakup. Comparing two breakup events therefore entails comparing the DIWECT vectors of the parent structures before breakup and the resultant child vectors. Finally, we emphasize the scope of this work to present and validate methodology for extracting and vectorizing droplet data from simulations, not to develop a model for the breakup mechanisms themselves. Developing such a model is identified in the Conclusions as future work. This work establishes the prerequisite of extracting and compressing droplets and showing that we are capable of comparing them.
+
+\begin{quote}
+    {\it ``Thirdly, whether one could move a step forward to see if this characterization could tell any further information, for example, if the droplet is experiencing strong shear stress? However, none of the evidence stated above can be found in this manuscript. In short, the reviewer think the authors should get deeper into the investigations of the performance and limitations of the proposed method.''}
+\end{quote}
+
+We appreciate this comment, because it allows us to better explain and demonstrate the utility of our methodology. The capability to infer flow conditions from the DIWECT is now demonstrated in the updated Section 4.3. The PERMANOVA analysis of the clusters shows that the clusters are distinct based on the slip velocities alone. This indicates that the DIWECT vectors contain enough information to recover information about the flow field around droplets in addition to the geometries. We also acknowledge that the interface-normal component of the velocity is potentially limited and have added text throughout the manuscript to be more explicit about this limitation: Section 3.2.3 discusses the flow field retained and discarded and the conclusion discusses future work testing out weighting values other than the normal velocity.
+
+\subsubsection*{Comment \#2}
+\begin{quote}
+{\it``Also, the methods are not explained in a clear way. For example, it is not clear how the maximum height is defined in eqn. 6. The defination of $K_{d,t}$ is not clear. The reviewrer has no idea how figure 3 gets that $K_{d,t}$. Also, $\sigma$ is not a number while dim $\sigma$ is. So by looking at eqn.6 it's not clear what values are assigned to $K_{d,t}$. And why the Euler characteristic of a ployhedra in eqn.3 does not equal to 2? The author mentioned doing directional average using 150 directions in DIWECT. Then why a single orientation is sufficient to represent any rotated transformation of a droplet? The reviewer suggests that the authors need to work on a clearer description of the method.''}
+\end{quote}
+
+We thank the reviewer for identifying these points of confusion and have revised Section 3.3 for clarity. Specifically, we incorrectly labelled Figure 3 as a description of the height filtration $K_{d,t}$, when in reality it was the Euler characteristic function of successive subcomplexes $K_{d,t}$. The values assigned to $K_{d,t}$ are simply a collection of vertices, edges, and faces, which are then used to compute the Euler characteristic function. The figure and the caption have been updated accordingly. Regarding the 150 directions, these are used to calculate the initial WECT, then we average over those directions to compute the DIWECT, which is rotationally invariant. This is a single description that can be compared directly to any other DIWECT regardless of the orientation in which it was extracted. Throughout Section 3.3 we have updated the language to better reach the intended audience and explain concepts more clearly. 
+
+\subsubsection*{Minor Comments}
+\begin{quote}
+    {1. \it``The author needs to fix the citation, where some of them should be put into a bracket and others need to be indicated as numbers.''}
+\end{quote}
+
+\begin{quote}
+    {2. \it``In figure 5 and the following figure, the grid resolution seems too coarse to serve as a ground truth for database.''}
+\end{quote}
+
+The droplets shown in Figure 5 are among the smallest structures in the database, so their meshes contain relatively few cells. We have added discussions to section 3.3 and the conclusion to discuss resolution. The DIWECT will vectorize geometries regardless of resolution, so the methodology works just as well at characterizing droplets in low resolution and high-fidelity simulations. We note in the conclusion that in order to use this method to develop a model, one would need a sufficiently resolved simulation to serve as training data. 
+
+\begin{quote}
+    {3. \it``In figure 11, plotting the statistics of the three velocity components is meaningless. If the author doesn't fix the frame of reference with respect to the droplet, then the readers cannot picture the flow around the drop.''}
+\end{quote}
+
+We thank the reviewer for this comment and have clarified the frame of reference in section 4.3. The components in Figure 11 are defined by the simulation frame of reference where the x-direction is aligned with the bulk gas inflow. $U_{slip}$ is the streamwise slip velocity and the y- and z- components are transverse flow. The purpose of this figure is not to depict the local flow around an individual droplet, but to compare the relative difference of physical quantities in each of the cluster populations. 
+
+\end{document}
