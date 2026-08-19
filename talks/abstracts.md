@@ -1,5 +1,22 @@
 # Abstracts
 
+## November, SIAM MDS (Tentative)
+
+Title: 
+
+Abstract:
+
+The weighted Euler characteristic transform (WECT) and Euler characteristic
+function (ECF) have proven to be useful tools in a variety of applications.
+However, current methods for computing these functions are either not optimized
+for GPU computation or do not scale to higher-dimensional settings.  In this
+work, we present a tensor-based framework for computing such topological
+descriptors that is highly optimized for GPU architectures and works in full
+generality across simplicial and cubical complexes of arbitrary dimension.
+Experimentally, the framework demonstrates significant speedups over existing
+methods when computing the WECT and ECF across a variety of two- and
+three-dimensional datasets.
+
 ## 2 April 2026
 
 Class: CS 6170: Computational Topology: Topology Meets Machine Learning

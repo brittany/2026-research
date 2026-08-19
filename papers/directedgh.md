@@ -1,5 +1,30 @@
 # Directed GH
 
+## 15 April 2026
+
+paper: simplicial models of trace spaces by M. Raussen.
+
+trace category
+objs: points
+morphisms: paths (mod reparameterization)
+
+consider square
+fundamental group: simply connected, so trivial
+fundamental groupoid: shouldn't be trivial? (says wenwen)
+
+fundamental grouupoid
+
+persistent fundamental categories: persistence of these directed spaces
+"objectives" section, \pi_1(arrow) is a fundamental groupoid
+
+left Khan extension
+
+question: is the fundamental category (not groupoid) of directed space abelian, or
+abelianizable?
+
+fundamental groupoid: every morphism is invertable. so, not good idea for our
+directed spaces.
+
 ## 11 February 2026
 
 new paper: Fundamentals of Theory of Continuous Gromov--Hausdorff
