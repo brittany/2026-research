@@ -17,9 +17,28 @@ Experimentally, the framework demonstrates significant speedups over existing
 methods when computing the WECT and ECF across a variety of two- and
 three-dimensional datasets.
 
+## 2-4 October 2026, AMS Sectional at GWU
+
+Title:
+
+Topological Descriptors: Theory and Practice
+
+Abstract:
+
+In many applications, topological descriptors are able to capture complicated
+patterns and structures in data that are not available by other means. We will
+start this talk with an application of using topological descriptors in
+diagnosis and prognosis of prostate cancer.  Motivated by this, we will provide
+a theoretical solution to dealing with distances in the space of persistence
+diagrams (adapting techniques from locality-sensitive hashing), as well as a
+practical solution (using an ML model to convert topological descriptors to
+binary codes).
+
 ## 2 April 2026
 
 Class: CS 6170: Computational Topology: Topology Meets Machine Learning
+
+Bei's class guest lecture at Utah
 
 ### Title
 
