@@ -1,8 +1,9 @@
 # Abstracts
 
-## November, SIAM MDS (Tentative)
+## November, SIAM MDS (Jacob is Giving this Talk)
 
 Title: 
+Tensor Computation of Euler Characteristic Functions and Transforms
 
 Abstract:
 
@@ -19,8 +20,9 @@ three-dimensional datasets.
 
 ## 2-4 October 2026, AMS Sectional at GWU
 
-Title:
+Special Session on Advances in Applied Topology: Theory and Applications
 
+Title:
 Topological Descriptors: Theory and Practice
 
 Abstract:
