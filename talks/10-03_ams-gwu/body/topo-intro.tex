@@ -1,0 +1,120 @@
+\section{Persistence Diagrams}
+
+\frame{
+    \frametitle{... But}
+
+    \pause
+    \begin{block}{Real Data is Large and Messy}
+        \centering
+        \only<1->{\includegraphics[width=.7\textwidth]{gleason/roi}}%
+    \end{block}
+
+    \pause
+    \begin{block}{}
+        And Diagram Space is Ugly ...
+    \end{block}
+}
+
+\frame{
+    \frametitle{Distances Between Diagrams}
+
+    \centering
+    \only<1>{\includegraphics[height=2in]{pd-search/diagram-empty}}%
+    \only<2>{\includegraphics[height=2in]{pd-search/diagram-matching}}%
+    \only<3>{\includegraphics[height=2in]{pd-search/diagram-partialmatch}}%
+    \only<4->{\includegraphics[height=2in]{pd-search/diagram-todiag}}%
+
+    \begin{block}{}
+        $$
+        d_q(D_1,D_2) := \min_{\mathcal{M}} \left(
+            {\only<3>{\color{red}} \sum_{(a,b)\in \mathcal{M}} ||a-b||_{\infty}^q} +
+            {\only<4->{\color{blue}} \frac{1}{2^{q-1}} \sum_{a \in \mathcal{M}^c} |a_x-a_y|^q}
+        \right)^{1/q}
+        $$
+    \end{block}
+
+}
+
+\frame<1>{
+    \frametitle{Alternate Distances Between Diagrams}
+
+    \begin{columns}
+        \column{.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{gleason/MDSlarge}
+    \column{.55\textwidth}
+    \begin{block}{}
+        \begin{itemize}
+            \item Wasserstein $d_q$.
+            \item Bottleneck / interleaving~$d_{\infty}$.
+            \item Erosion distance. \pause
+            \item (Distances in function space.)
+        \end{itemize}
+    \end{block}
+    \end{columns}
+}
+
+\frame{
+    \frametitle{Summarizing with Averaging}
+
+    \begin{columns}
+        \column{.45\textwidth}
+            \begin{block}{Data}
+                $\mathcal{D} \subset \mathbb{D}_M^m$
+            \end{block}
+            \pause
+            \begin{block}{\checkmark Fr\'echet Variance defined!}
+                Let $D \in \mathbb{D}_M^m$ and $\mathcal{D} \subset
+                \mathbb{D}_M^m$.
+                $$ V_p(D, \mathcal{D}) := \sum_{A \in \mathcal{D}} d_p^2(A,D)  $$
+            \end{block}
+            \pause
+            \begin{block}{... But Nonunique Means}
+                $$ \mu_p(\mathcal{D}) := \argmin_{D \in \mathcal{D}} V_p(D,\mathcal{D} ) $$
+            \end{block}
+        \column{.45\textwidth}
+        \begin{block}{}
+            \centering
+            \only<3>{\includegraphics[height=2in]{stat/frechet-mean}}%
+            \only<4>{\includegraphics[height=2in]{stat/frechet-mean1}}%
+            \only<5->{\includegraphics[height=2in]{stat/frechet-mean2}}%
+        \end{block}
+        %
+        \footnotesize
+        \begin{block}{References}
+            \begin{itemize}
+                \item Turner et al., DCG 2014
+                \item Munch et al., EJS 2015
+            \end{itemize}
+        \end{block}
+    \end{columns}
+}
+
+\frame{
+    \frametitle{The Metric Space $(\mathcal{D}_M^m, d_{\infty})$}
+
+    \begin{columns}
+        \column{.45\textwidth}
+        \pause
+        \begin{block}{As a Set}
+            $(M,m)$-bounded diagrams:\pause
+            \begin{itemize}
+                \item $M$, maximum absolute values of finite coordinates\pause
+                \item $m$, upper bound for size \pause
+            \end{itemize}
+        \end{block}
+        \column{.45\textwidth}
+        \begin{block}{As a Space}
+            The metric topology \pause
+        \end{block}
+        \begin{block}{Theorem, ArXiv 1812.11257}
+            Infinite doubling dimension!
+        \end{block}
+    \end{columns}
+}
+
+\frame{
+    \begin{block}{}
+        ... so, what can we do with persistence diagrams?
+    \end{block}
+}
