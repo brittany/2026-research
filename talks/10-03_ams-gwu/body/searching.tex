@@ -5,7 +5,7 @@
 }
 
 \frame{
-    \frametitle{Nearest Neighbor Search}
+    \frametitle{Searching}
 \begin{block}{}
     \centering
     \onslide<3->{\includegraphics[height=2in]{pd-search/dgm-query}}
@@ -44,7 +44,7 @@
     \end{columns}
 }
 
-\frame{
+\frame<1-11>{
     \frametitle{A Tried and True Way}
     \onslide<2->{\framesubtitle{... in Nice Enough Spaces}}
 
@@ -79,10 +79,14 @@
     \end{columns}
 }
 
-
+\frame{
+    \begin{block}{}
+        ... so, what can we do with persistence diagrams?
+    \end{block}
+}
 
 \frame{
-    \frametitle{Near Neighbor Search}
+    \frametitle{Approximate Nearest Neighbor Search}
 
 \begin{columns}
     \column{.5\textwidth}
@@ -101,7 +105,7 @@
     \pause
       \begin{block}{Considerations}
           \begin{itemize}
-              \item Want: $ {\color{red} c}$ small
+              \item Approximation factor $ {\color{red} c}$
               \pause \item Query time
               \pause \item Size of data structure
               \pause \item Precomputation time
@@ -159,7 +163,7 @@
                 \item Increase level, increase resolution.
                 \item At each level $i$,
                     \begin{itemize}
-                        \item $O(5^m)$ snap-roundings of each $P \in \mathcal{D}$.
+                        \item $5^m$ snap-roundings of each $P \in \mathcal{D}$.
                         \item Compute key for each.
                         \item Sort keys.
                     \end{itemize}
@@ -338,7 +342,7 @@
 \againframe{firstAttempt}
 \frame[label=results]{
     \frametitle{Our Result}
-    \framesubtitle{ArXiv 1812.11257}
+    \framesubtitle{FHLMMZ, ArXiv 1812.11257}
 
     \begin{block}{Deterministic Near Neighbor}
         We find a near-neighbor using

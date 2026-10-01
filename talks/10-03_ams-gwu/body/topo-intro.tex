@@ -1,17 +1,11 @@
 \section{Persistence Diagrams}
 
 \frame{
-    \frametitle{... But}
+    \frametitle{}
 
     \pause
-    \begin{block}{Real Data is Large and Messy}
-        \centering
-        \only<1->{\includegraphics[width=.7\textwidth]{gleason/roi}}%
-    \end{block}
-
-    \pause
-    \begin{block}{}
-        And Diagram Space is Ugly ...
+    \begin{block}{... But}
+        Computing distances between diagrams is costly!
     \end{block}
 }
 
@@ -35,22 +29,55 @@
 
 }
 
-\frame<1>{
-    \frametitle{Alternate Distances Between Diagrams}
+\frame{
+    \frametitle{}
+
+    \pause
+    \begin{block}{Moreover}
+        The space of PDs is ugly!
+    \end{block}
+}
+
+% \frame<1>{
+%     \frametitle{Alternate Distances Between Diagrams}
+%
+%     \begin{columns}
+%         \column{.45\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{gleason/MDSlarge}
+%     \column{.55\textwidth}
+%     \begin{block}{}
+%         \begin{itemize}
+%             \item Wasserstein $d_q$.
+%             \item Bottleneck / interleaving~$d_{\infty}$.
+%             \item Erosion distance (Patel, 2018). \pause
+%             \item (Distances in function space.)
+%         \end{itemize}
+%     \end{block}
+%     \end{columns}
+% }
+
+
+\frame{
+    \frametitle{The Metric Space $(\mathcal{D}_M^m, d_{\infty})$}
 
     \begin{columns}
         \column{.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{gleason/MDSlarge}
-    \column{.55\textwidth}
-    \begin{block}{}
-        \begin{itemize}
-            \item Wasserstein $d_q$.
-            \item Bottleneck / interleaving~$d_{\infty}$.
-            \item Erosion distance. \pause
-            \item (Distances in function space.)
-        \end{itemize}
-    \end{block}
+        \pause
+        \begin{block}{As a Set}
+            $(M,m)$-bounded diagrams:\pause
+            \begin{itemize}
+                \item $M$, maximum absolute values of finite coordinates\pause
+                \item $m$, upper bound for size \pause
+            \end{itemize}
+        \end{block}
+        \column{.45\textwidth}
+        \begin{block}{As a Space}
+            The metric topology \pause
+        \end{block}
+        \begin{block}{Theorem, FHLMMZ, arXiv 1812.11257}
+            Infinite doubling dimension!
+        \end{block}
     \end{columns}
 }
 
@@ -88,33 +115,4 @@
             \end{itemize}
         \end{block}
     \end{columns}
-}
-
-\frame{
-    \frametitle{The Metric Space $(\mathcal{D}_M^m, d_{\infty})$}
-
-    \begin{columns}
-        \column{.45\textwidth}
-        \pause
-        \begin{block}{As a Set}
-            $(M,m)$-bounded diagrams:\pause
-            \begin{itemize}
-                \item $M$, maximum absolute values of finite coordinates\pause
-                \item $m$, upper bound for size \pause
-            \end{itemize}
-        \end{block}
-        \column{.45\textwidth}
-        \begin{block}{As a Space}
-            The metric topology \pause
-        \end{block}
-        \begin{block}{Theorem, ArXiv 1812.11257}
-            Infinite doubling dimension!
-        \end{block}
-    \end{columns}
-}
-
-\frame{
-    \begin{block}{}
-        ... so, what can we do with persistence diagrams?
-    \end{block}
 }
