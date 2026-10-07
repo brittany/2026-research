@@ -36,6 +36,11 @@ and how long (number of days) in each country?) No
 
 * Alex McCleary
 
+* Jack now in a PhD program
+
+* REU students: Lily Rippeteau (Summer 2025), and Alex Oram (Summer 2026) 
+    - Lily is now a MS student at Marine and Estuarine Science at WWU
+
 ## Products
 
 1. Other Conference Presentation (including posters)
@@ -112,12 +117,30 @@ All:
 * Type: Oral
 
 Alex: 
-Tensor Computation of Euler Characteristic Functions and Transforms
+(in PAR) Tensor Computation of Euler Characteristic Functions and Transforms
 SoCG, June 4 2026
 
 ATMCS, 2 posters; Erin presented other work
+* Benjamin Holmgren, Erin Wolf Chambers, Brittany Terese Fasy, Yu Qin. A
+Geometric Distance for Morse–Smale Complexes
+* Yu Qin, Brittany Terese Fasy, Carola Wenk, Brian Summa. Rapid and Precise
+Topological Comparison with Merge Tree Neural Networks
+* Braeden Sopp, Brittany Terese Fasy, Shinjini Nandi. Persistence Diagrams as
+a Spatial Descriptor
+* (in PAR) Brendan Christensen, Brittany Terese Fasy, Alexander McCleary, Jack Ruder,
+Mark Owkes. Using Weighted Euler Characteristic Transform for Atomization
+Model Development
+
+IWOCA 2025:
+* (in PAR) Drawing Reeb Graphs
 
 ## Outreach Presentations
+
+MSU science day
+MSU explore camp
+BIOB 105 guest lecture
+science olympiad lab visit
+math circle summer day camp
 
 Barton
 * When: Summer 2026
@@ -144,6 +167,9 @@ McCleary
 
 McCleary
 * Spring 2026, Family science night
+
+July 2025
+2025 Math Circle Summer Day Camp
 
 ## Research Activiites / Results
 
