@@ -16,6 +16,7 @@
     - Reimbursement for travel to CG Week 2026
     - Will be reimbursed for travel to SIAM MDS 2026 in November
 * International Travel during this reporting period? No international travel.
+
 ## Products
 
 1. Other Conference Presentation (including posters)
@@ -25,6 +26,7 @@
     * Location: New Brunswick, NJ, USA
     * Year: 2026
     * Authors: Jacob Sriraman, Eli Barton, Brittany Terese Fasy, David L. Millman, Brendan Mumey, Nate Rengo, Braeden Sopp, Vasishta Tumuluri, Binhai Zhu
+
 2. Other Conference Presentation (including posters)
     * Status: Accepted (poster) 
     * Title: Topology of The Polar Vortex and Montana Weather
