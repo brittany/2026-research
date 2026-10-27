@@ -11,8 +11,15 @@
     - link worksheets to class schedule
 * Grants: 
     - organize DOE grant LOI todos
+* Service: 
+    - FWCG reviews
 
 ## TODO: week-ish
+
+* Papers:
+    - DIWECT: related work (read/edit)
+* Other Research:
+    - geomtom: start at def 2 (steiner sym)
 
 ## TODO: month-ish
 
