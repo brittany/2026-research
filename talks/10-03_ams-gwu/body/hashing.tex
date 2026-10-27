@@ -1,0 +1,201 @@
+\frame{
+    \begin{block}{}
+
+        Still need faster distance computations ...
+
+    \end{block}
+}
+
+\frame<1>[label=reveal]{
+    \frametitle{Clustering}
+    \begin{block}{}
+
+        \centering
+        \only<1>{\includegraphics[height=2in]{pd-search/vis21-teaser-pre}}%
+        \only<2->{\includegraphics[height=2in]{pd-search/vis21-teaser}}%
+
+    \end{block}
+}
+
+\frame{
+    \frametitle{General Idea}
+
+    \begin{block}{}
+        \centering
+        \only<1>{\includegraphics[height=2.75in]{pd-search/vis21-overview-2dgmonly}}%
+        \only<2>{\includegraphics[height=2.75in]{pd-search/vis21-overview-2images}}%
+        \only<3>{\includegraphics[height=2.75in]{pd-search/vis21-overview-2ml}}%
+        \only<4->{\includegraphics[height=2.75in]{pd-search/vis21-overview}}%
+    \end{block}
+}
+
+\frame{
+    \frametitle{Training Architecture}
+
+    \begin{block}{}
+        \centering
+        \includegraphics[width=\textwidth]{pd-search/PD-BGAN}
+    \end{block}
+}
+
+\frame{
+    \frametitle{Related Work}
+    \framesubtitle{Binary Generative Adversarial Networks for Image Retrieval by
+    Song et al.}
+
+    \begin{block}{}
+        \centering
+        \includegraphics[height=2.5in]{pd-search/song-abstract}
+    \end{block}
+}
+
+
+\frame{
+    \frametitle{Hashing for PD Distances}
+
+    \begin{block}{}
+        \begin{itemize}
+            \item Qin, Fasy, Wenk, Summa. A Domain-Oblivious Approach for Learning Concise
+                Representations of Filtered Topological Spaces for Clustering.
+                IEEE Vis 2021.
+            \item Code: \url{https://osf.io/q58c3/}
+        \end{itemize}
+    \end{block}
+
+}
+
+\frame{
+    \frametitle{Input to GANN}
+    \begin{block}{}
+        \centering
+        \includegraphics[height=2in]{pd-search/histogram}
+    \end{block}
+}
+
+
+\frame{
+    \frametitle{Quality of Clusters}
+
+    \begin{columns}
+        \column{.45\textwidth}
+        \begin{block}{Variables}
+        \begin{itemize}
+            \item ${{n}\choose{2}}$ pairs of diagrams
+            \item $C_1$ = clustering in $(\mathcal{D},d_1)$
+            \item $C_2$ = our clustering \pause
+            \item $A^+$ = agree, same cluster
+            \item $D^{+,-}$ = disagree
+            \item $D^{-,+}$ = disagree
+        \end{itemize}
+        \end{block}
+
+        \pause
+        \column{.45\textwidth}
+        \begin{block}{Fowlkes--Mallows Score (FMS)}
+            $$ S = \frac{A^+}{\sqrt{(A^++D^{-,+})(A^++D^{+,-})}} $$
+            \pause
+            \begin{itemize}
+                \item $S \in [0,1]$
+                \item $S=1$ iff identical clusters
+            \end{itemize}
+        \end{block}
+    \end{columns}
+}
+
+\frame[label=realorbin]{
+    \frametitle{Real or Binary Similarity Matrix?}
+    \begin{block}{}
+
+        \begin{table}[ht]
+            \scriptsize%
+            \centering%
+            \renewcommand{\arraystretch}{1.2}
+            \begin{tabu}{%
+                    lrrrrrr%
+                *{7}{c}%
+                *{2}{r}%
+                }
+                \toprule
+                & & & & & \multicolumn{3}{c}{Ours} \\
+                \cmidrule(lr){6-8}
+                Dataset & Avg Pts &PW  &PI &BC &Model &Real &Bin \\
+                \hline
+                Colon-sub &503  &0.71    &0.98  &\textbf{0.99}& 100 &0.92 &\textbf{0.99}   \\
+                3D Shape-1 &63 &0.54   & 0.8 &0.81 & 50 &  0.82 &\textbf{0.83} \\
+                3D Shape-2 &22   &0.74  &\textbf{0.97} &0.96 & 20 & 0.91 &\textbf{0.97}  \\
+                Vortex Street & 14  &\textbf{1}   &0.79  &0.78  & 20 &  0.80 & 0.81  \\
+                Starting Vortex &36  &\textbf{1}   &\textbf{1} &\textbf{1}  & 50 & 0.63 &\textbf{1}\\
+                \bottomrule
+            \end{tabu}%
+        \end{table}
+
+
+    \end{block}
+}
+
+\frame{
+    \frametitle{Selecting a Training Set}
+
+    \begin{block}{}
+    \begin{table}[h]
+        \scriptsize%
+            \centering%
+         \renewcommand{\arraystretch}{1.2}
+            \resizebox{\linewidth}{!}{%
+                \begin{tabu}{%
+                        lrrrrrr%
+                    *{7}{c}%
+                    *{2}{r}%
+                    }
+                    \toprule
+                    & & & \multicolumn{3}{c}{FMS} \\
+                    \cmidrule(lr){4-6}
+                    Dataset &$\mathbf{N}$ & Avg Pts  &Model-20 &Model-50 &Model-100 \\
+                    \hline
+                    3D Shape-2 &1,900 &22 & \textbf{0.97}  &0.96  &0.62    \\
+                    3D Shape-1 &1,200 &63 &0.77  & \textbf{0.83}  &0.67    \\
+                    Colon Cancer-sub &1,800 &503 & 0.71  &0.76  &\textbf{0.99}    \\
+                    \bottomrule
+                \end{tabu}%
+        }
+    \end{table}
+    \end{block}
+}
+
+\frame{
+    \frametitle{How Many Bits to Use?}
+    \begin{block}{}
+    \begin{table}[th]
+        \scriptsize%
+            \centering%
+        \renewcommand{\arraystretch}{1.2}
+        \resizebox{\linewidth}{!}{%
+            \begin{tabu}{%
+                    lrrrrrr%
+                *{7}{c}%
+                *{2}{r}%
+                }
+                \toprule
+                Dataset &$\mathbf{N}$ & Avg Pts  &24 bits &48 bits & 64 bits &128 bits &256 bits \\
+                \hline
+                3D Shape-1 &1,200 &63 &0.64  &0.75  &\textbf{0.83} &0.84  &0.86 \\
+                    3D Shape-2 &1,900 &22 &0.82 &0.89 &\textbf{0.97} &0.97 &0.98 \\
+                Vortex Street &45 &14 &0.67 &0.77 &\textbf{0.81} &0.83 &0.86 \\
+                    Starting Vortex &12 &36 &0.94 &1 &\textbf{1} &1 &1 \\
+                \bottomrule
+            \end{tabu}%
+        }
+    \end{table}
+    \end{block}
+}
+
+\frame{
+    \frametitle{Visualization}
+
+    \begin{block}{}
+        \centering
+        \includegraphics[height=2.5in]{pd-search/kde_figure}
+    \end{block}
+}
+
+\againframe{reveal}

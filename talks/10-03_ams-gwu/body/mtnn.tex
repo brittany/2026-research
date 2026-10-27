@@ -1,0 +1,135 @@
+\frame{
+    \frametitle{Merge Trees / Join Trees}
+
+    \begin{block}{}
+        \centering
+        \only<1>{\includegraphics[width=.9\textwidth]{topology/merge-tree/merge-trees_g1-fcn}}%
+        \only<2>{\includegraphics[width=.9\textwidth]{topology/merge-tree/merge-trees_g1-mt}}%
+        \only<3>{\includegraphics[width=.9\textwidth]{topology/merge-tree/merge-trees_g1-all}}%
+        \only<4>{\includegraphics[width=.9\textwidth]{topology/merge-tree/merge-trees_all}}%
+    \end{block}
+}
+
+\frame{
+    \frametitle{Merge Tree Edit Distance}
+
+    \begin{columns}
+        \column{.45\textwidth}
+
+        \begin{block}{Edit Operations}
+            \begin{itemize}
+                \item Relabel
+                \onslide<9->{ \item Remove Leaf Node}
+                \onslide<11->{ \item Add Leaf Node}
+            \end{itemize}
+        \end{block}
+
+        \column{.45\textwidth}
+
+        \begin{block}{}
+            \centering
+            \only<1>{\includegraphics[width=.9\textwidth]{topology/merge-tree/edit-mt-0}}%
+            \only<2>{\includegraphics[width=.9\textwidth]{topology/merge-tree/edit-mtheights}}%
+            \only<3>{\includegraphics[width=.9\textwidth]{topology/merge-tree/edit-relabel1-b4}}%
+            \only<4>{\includegraphics[width=.9\textwidth]{topology/merge-tree/edit-relabel1-after}}%
+            \only<5>{\includegraphics[width=.9\textwidth]{topology/merge-tree/edit-mt-1}}%
+            \only<6>{\includegraphics[width=.9\textwidth]{topology/merge-tree/edit-relabel2-b4}}%
+            \only<7>{\includegraphics[width=.9\textwidth]{topology/merge-tree/edit-relabel2-after}}%
+            \only<8>{\includegraphics[width=.9\textwidth]{topology/merge-tree/edit-mt-2}}%
+            \only<9>{\includegraphics[width=.9\textwidth]{topology/merge-tree/edit-remove3-b4}}%
+            \only<10>{\includegraphics[width=.9\textwidth]{topology/merge-tree/edit-remove3-after}}%
+            \only<11>{\includegraphics[width=.9\textwidth]{topology/merge-tree/edit-remove3-b4}}%
+            \only<12>{\includegraphics[width=.9\textwidth]{topology/merge-tree/edit-mt-2}}%
+        \end{block}
+
+    \end{columns}
+}
+
+\frame{
+    \frametitle{Merge Tree Neural Network}
+
+    \begin{block}{}
+        \centering
+        \only<1->{\includegraphics[width=.9\textwidth]{topology/merge-tree/MTNN}}%
+    \end{block}
+}
+
+\frame{
+    \frametitle{Datasets}
+
+    \begin{columns}
+        \column{.45\textwidth}
+            \begin{block}{3D Shapes: TOSCA}
+                \only<1->{\includegraphics[width=.9\textwidth]{topology/merge-tree/TOSCA}}%
+            \end{block}
+        \column{.45\textwidth}
+            \begin{block}{2D Flows: Corner Flow}
+                \only<1->{\includegraphics[width=.9\textwidth]{topology/merge-tree/cf_exp}}%
+            \end{block}
+    \end{columns}
+}
+
+\frame{
+    \frametitle{Results}
+
+       %  \begin{block}{}
+       %      \begin{center}
+       %          \begin{tabular}{@{}llll@{}}
+       %              \toprule
+       %              Dataset         & GCN           & GIN               & MTNN                   \\
+       %              \midrule
+       %              {MT2k}          & 0.53819   & 0.18996               & \textbf{0.10408} \\
+       %              {Corner Flow}   & 65.23393  &  \textbf{0.00145}     & 0.00312                \\
+       %              {Heated Flow}   & 36.36125  & 0.00468               &  \textbf{0.00263} \\
+       %              {Vortex Street} & 470.82582 &  \textbf{0.00008}     & 0.00018                \\
+       %              {TOSCA}      & 12.60986  & 0.01542                  & \textbf{0.00986} \\
+       %              \bottomrule
+       %          \end{tabular}%
+       %      \end{center}
+       %  \end{block}
+
+        \begin{block}{Mean Square Error}
+            \begin{center}
+                \begin{tabular}{@{}llll@{}}
+                    \toprule
+                    Dataset         & GCN     & GIN                   & MTNN                   \\
+                    \midrule
+                    {MT2k}          & 5.38e4  &         1.89e4       & \textbf{1.04e4} \\
+                    {Corner Flow}   & 6.52e2  &  \textbf{1.45e7}     & 3.12e6                \\
+                    {Heated Flow}   & 3.63e2  &         4.68e6       & \textbf{2.63e6} \\
+                    {Vortex Street} & 4.70e1  &  \textbf{8.00e8}     & 1.8e7               \\
+                    {TOSCA}         & 1.26e2  &         1.542e5      & \textbf{9.86e6} \\
+                    \bottomrule
+                \end{tabular}%
+            \end{center}
+        \end{block}
+
+}
+
+
+\frame{
+    \frametitle{Runtime}
+
+    \begin{block}{}
+        \centering
+        \only<1->{\includegraphics[height=2in]{topology/merge-tree/runtime}}%
+        \begin{itemize}
+            \item Plotted on log-scale
+            \item Training times: 2-5 hours
+        \end{itemize}
+    \end{block}
+}
+
+\frame{
+    \frametitle{References}
+
+    \begin{block}{}
+        \begin{itemize}
+            \item Qin, Fasy, Wenk, Summa. Rapid and Precise Topological
+                Comparison with Merge Tree Neural Networks. IEEE Vis 2024. (Best
+                Paper Award).
+            \item Code: \url{https://osf.io/2n8dy/}
+        \end{itemize}
+    \end{block}
+
+}
