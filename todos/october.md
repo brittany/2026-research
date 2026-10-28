@@ -9,15 +9,15 @@
     - update exam 1 grades
     - update worksheet typos
     - link worksheets to class schedule
+* Papers: DIWECT: related work (read/edit)
 * Grants: 
-    - organize DOE grant LOI todos
-* Service: 
-    - FWCG reviews
+    - email my lab and industry partners
+    - collab list
+* Service: FWCG complete remaining review
 
 ## TODO: week-ish
 
-* Papers:
-    - DIWECT: related work (read/edit)
+* Grants: Overdue Reports!
 * Other Research:
     - geomtom: start at def 2 (steiner sym)
 
@@ -27,6 +27,9 @@
 
 ## Done: 27 October 2026
 
+* Service: assign FWCG subreviews
+* Grants
+    - organize DOE grant LOI todos
 * Class:
     - homology worksheet
     - set date for next exam
