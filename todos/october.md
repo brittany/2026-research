@@ -5,7 +5,6 @@
 * Class: 
     - update exam 1 grades
     - grade quizzes
-    - grade attendance sheets
     - update worksheet typos
     - link worksheets to class schedule
 * Papers: DIWECT: related work (read/edit)
@@ -32,6 +31,7 @@
 * Service: edit: FoDS
 * Service: edit: LAMA 
 * Class:
+    - grade attendance sheets
     - add module 3 to website
 * Grants:
     - collab list
