@@ -3,21 +3,22 @@
 ## TODO: today-ish
 
 * Class: 
-    - update website
-    - grade quizzes
-    - scan attendance
     - update exam 1 grades
+    - grade quizzes
     - update worksheet typos
     - link worksheets to class schedule
+* Papers: DIWECT: related work (read/edit)
 * Grants: 
-    - organize DOE grant LOI todos
-* Service: 
-    - FWCG reviews
+    - email my lab and industry partners
+* Service: IEEE IT review submitted 
+* Service: FWCG complete remaining review
 
 ## TODO: week-ish
 
-* Papers:
-    - DIWECT: related work (read/edit)
+* Class: scan attendance
+* Class: add module 4 to website
+* Grants: Overdue Reports!
+* Paper: software: figure 1 email and payment
 * Other Research:
     - geomtom: start at def 2 (steiner sym)
 
@@ -29,8 +30,21 @@
 
 ## TODO: long-term
 
+## Done: 28 October 2026
+
+* Service: edit: FoDS
+* Service: edit: LAMA 
+* Class:
+    - grade attendance sheets
+    - add module 3 to website
+* Grants:
+    - collab list
+
 ## Done: 27 October 2026
 
+* Service: assign FWCG subreviews
+* Grants
+    - organize DOE grant LOI todos
 * Class:
     - homology worksheet
     - set date for next exam
