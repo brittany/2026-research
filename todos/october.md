@@ -23,6 +23,10 @@
 
 ## TODO: month-ish
 
+* Papers:
+    - ordering descriptors
+* (Nov 25) promotion candidate for MT Tech
+
 ## TODO: long-term
 
 ## Done: 27 October 2026
