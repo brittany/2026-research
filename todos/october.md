@@ -21,6 +21,7 @@
 * Paper: software: figure 1 email and payment
 * Other Research:
     - geomtom: start at def 2 (steiner sym)
+* NC State chat
 
 ## TODO: month-ish
 
