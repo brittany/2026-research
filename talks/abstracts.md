@@ -18,6 +18,25 @@ Experimentally, the framework demonstrates significant speedups over existing
 methods when computing the WECT and ECF across a variety of two- and
 three-dimensional datasets.
 
+## 11 November: NC State
+
+Venue: GT Seminar
+
+Title:
+Topological Descriptors for Shapes in R^d
+
+Abstract:
+
+We investigate topological descriptors for shapes immersed in R^d.  In
+particular, we consider the persistence diagram, the Euler characteristic
+function, the Betti function, and their verbose counterparts. We investigate
+how small faithful sets can be, and we provide some experimental studies
+demonstrating the gap between theory in practice.  Building from this knowledge,
+we  establish a framework that allows for a quantitative comparison of
+topological descriptors and use this framework to define a total order on the
+descriptors. We hope that this investigation will assist researchers when
+choosing among different topological descriptors for their data analysis tasks.
+
 ## 2-4 October 2026, AMS Sectional at GWU
 
 Special Session on Advances in Applied Topology: Theory and Applications
