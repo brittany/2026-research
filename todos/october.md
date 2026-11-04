@@ -21,8 +21,13 @@
 * Paper: software: figure 1 email and payment
 * Other Research:
     - geomtom: start at def 2 (steiner sym)
+* NC State chat
 
 ## TODO: month-ish
+
+* Papers:
+    - ordering descriptors
+* (Nov 25) promotion candidate for MT Tech
 
 ## TODO: long-term
 
