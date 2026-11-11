@@ -1,0 +1,214 @@
+\frame<1>[label=pd-v-vpd]{
+
+    \begin{block}{Observation}
+        The PD contains no more information than the VPD.
+    \end{block}
+
+    \onslide<2->{
+        \begin{block}{}
+            \centering
+            \includegraphics[height=1in]{topology/pht/ordering-pd-leq-vpd}
+        \end{block}
+        }
+}
+
+\frame{
+    \frametitle{Ordering Descriptors}
+
+    \begin{columns}
+        \column{.45\textwidth}
+        \onslide<1->{
+        \begin{block}{$D_1 \leq D_2$}
+            For every $K$,
+            $$ \mu(D_2,K) \leq \mu(D_1,K).$$
+        \end{block}
+        }
+
+        \onslide<2->{
+        \begin{block}{$D_1 < D_2$}
+            \begin{enumerate}
+                \item $D_1 \leq D_2$
+                \item there exists a complex $K$ where $\mu(D_2,K) < \mu(D_1,K)$.
+            \end{enumerate}
+        \end{block}
+        }
+
+        \column{.45\textwidth}
+        \onslide<1->{
+        \begin{block}{}
+            \includegraphics[width=\textwidth]{topology/pht/ordering-leq}
+        \end{block}
+        }
+        \onslide<2->{
+        \begin{block}{}
+            \includegraphics[width=\textwidth]{topology/pht/ordering-lneq}
+        \end{block}
+        }
+    \end{columns}
+    }
+
+\againframe{pd-v-vpd}
+
+\frame{
+    \frametitle{PD is \emph{Strictly} Weaker than VPD}
+
+    \begin{columns}
+        \column{.45\textwidth}
+        \begin{block}{}
+            \centering
+            PD $\leq$ VPD
+        \end{block}
+        \begin{block}{}
+            \centering
+            \includegraphics[width=\textwidth]{topology/pht/observability-nobend}
+        \end{block}
+
+        \column{.45\textwidth}
+        \begin{block}{}
+            \centering
+            \includegraphics[height=2.5in]{topology/pht/ordering-pd-lneq-vpd}
+        \end{block}
+    \end{columns}
+}
+
+\frame{
+    \frametitle{(Verbose) Euler Characteristic Functions}
+
+    \begin{columns}
+        \column{.45\textwidth}
+
+        \begin{block}{}
+            Let $h \colon K \to \R$ be a filter.
+        \end{block}
+
+        \onslide<2->{
+        \begin{block}{Euler Char.\ Function (ECF)}
+            A function $\chi \colon \R \to \N$ defined by
+            $$\chi(t) = \sum_{\sigma \in h^{-1}(-\infty,t]} (-1)^{\dim(\sigma)}.$$
+        \end{block}
+        }
+
+        \onslide<3->{
+        \begin{block}{Verbose ECF}
+            A function $\hat{\chi} \colon \R \to \N^2$ defined by
+            $$\hat{\chi}(t) = ( \# (+1)s,  \# (-1)s ). $$
+        \end{block}
+        }
+
+        \column{.45\textwidth}
+            \centering
+            \only<1>{\includegraphics[height=1.5in]{topology/pht/ex-v-point-up}\\
+            }%
+            \only<2->{\includegraphics[height=1.5in]{topology/pht/ecc/ex-v-ecc}\\~\\
+            }%
+            \onslide<3->{\includegraphics[height=.8in]{topology/pht/ecc/ex-v-ecc-pos}
+                        \hspace{2em}
+                        \includegraphics[height=.8in]{topology/pht/ecc/ex-v-ecc-neg}
+            }%
+
+    \end{columns}
+}
+
+\frame{
+    \frametitle{(Verbose) Betti Functions}
+
+    \begin{block}{}
+        \centering
+        \only<1-2>{\includegraphics[height=1.25in]{topology/pht/lsfilt-index}}%
+        \only<3->{\includegraphics[height=1.25in]{topology/pht/lsfilt-betti}}%
+    \end{block}
+
+    \onslide<2->{
+    \begin{block}{}
+        \centering
+        \only<1-2>{\includegraphics[height=1.25in]{topology/pht/betti/ex-v-bcf}}%
+        \only<3->{\includegraphics[height=1.25in]{topology/pht/betti/ex-v-bcf-pos}}%
+        \only<3->{\includegraphics[height=1.25in]{topology/pht/betti/ex-v-bcf-neg}}%
+    \end{block}
+    }
+}
+
+
+\frame{
+    \frametitle{Verbose Is No Worse}
+
+    \begin{block}{}
+        \centering
+        Descriptor $\leq$ Verbose Descriptor
+    \end{block}
+
+    \pause
+    \begin{block}{Why?}
+        Ignore (forget) some info, and we have the usual descriptor.
+    \end{block}
+
+    \pause
+    \begin{block}{But Wait!}
+        The inequality is actually strict!\\
+        \begin{center}
+            Descriptor $<$ Verbose Descriptor
+        \end{center}
+    \end{block}
+
+    \pause
+    \begin{block}{Why?}
+        Again, a single edge.
+    \end{block}
+}
+
+\frame{
+    \centering
+    \only<1>{\includegraphics[height=2.5in]{topology/pht/ordering-verbose-no-worse}}%
+    \only<2->{\includegraphics[height=2.5in]{topology/pht/ordering-weak-reductions}}
+}
+
+\frame{
+    \frametitle{VBF $<$ VPD}
+
+    \begin{block}{}
+        \centering
+        \only<1-2>{\includegraphics[height=1.25in]{topology/pht/abc-v-apd_init}\\}%
+        \only<3->{\includegraphics[height=1.25in]{topology/pht/abc-v-apd}\\}%
+    \end{block}
+    \onslide<2->{
+        \begin{block}{A Minimum VPD set:}
+            \begin{center}
+                {\includegraphics[height=0.5in]{topology/pht/example-dirs-up-right}}%
+            \end{center}
+        \end{block}
+    }
+    \footnotetext{Published in CCCG 2024.}
+}
+
+\frame{
+    \centering
+    \only<1->{\includegraphics[height=2.5in]{topology/pht/ordering-wr-plus-vbf-vpd}}
+}
+
+
+\frame{
+    \frametitle{VEC $<$ VBC}
+
+    \begin{block}{}
+        \centering
+        \only<1-2>{\includegraphics[height=1.25in]{topology/pht/vec-v-vbc-init}\\}%
+        \only<3->{\includegraphics[height=1.25in]{topology/pht/vec-v-vbc}\\}%
+    \end{block}
+    \onslide<2->{
+        \begin{block}{A Minimum VBC set:}
+            \begin{center}
+                {\includegraphics[height=0.5in]{topology/pht/example-dirs-up-right}}%
+            \end{center}
+        \end{block}
+    }
+}
+
+\frame{
+    \frametitle{Putting it All Together}
+
+    \begin{block}{}
+        \centering
+        \includegraphics[height=2in]{topology/pht/ordering}
+    \end{block}
+
+}

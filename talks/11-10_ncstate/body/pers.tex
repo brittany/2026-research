@@ -1,0 +1,77 @@
+\frame[label=topotransform]{
+    \frametitle{Representing Shapes}
+    \begin{block}{}
+    \centering
+    \only<1->{\includegraphics{topology/pht/transform-gen}}%
+    \end{block}
+}
+
+\frame{
+    \frametitle{Height Filtrations: Unveiling a Shape in $\R^d$}
+    \begin{block}{}
+    \centering
+    \only<1>{\includegraphics{topology/pht/upV-d1-c0}}%
+    \only<2>{\includegraphics{topology/pht/upV-d1-c1}}%
+    \only<3>{\includegraphics{topology/pht/upV-d1-c2}}%
+    \only<4>{\includegraphics{topology/pht/upV-d1-c3}}%
+    \only<5>{\includegraphics{topology/pht/upV-d1-c4}}%
+    \only<6>{\includegraphics{topology/pht/upV-d1-c5}}%
+    \only<7>{\includegraphics{topology/pht/upV-d1-c6}}%
+    \only<8>{\includegraphics{topology/pht/upV-d1-c7}}%
+    \only<9>{\includegraphics{topology/pht/upV-d1-c8}}%
+    \only<10>{\includegraphics{topology/pht/upV-d1-c9}}%
+    \only<11>{\includegraphics{topology/pht/upV-d1-c10}}%
+    \end{block}
+}
+
+
+\frame<1-8>[label=augpd]{
+    \frametitle{\onslide<9->{Verbose} Persistence Barcodes/Diagrams}
+    \begin{block}{}
+        \centering
+        \only<1>{\includegraphics[height=1.75in]{topology/pht/lsfilt-heightfilt}}%
+        \only<2>{\includegraphics[height=1.75in]{topology/pht/lsfilt-withaxis}}%
+        \only<3>{\includegraphics[height=1.75in]{topology/pht/lsfilt-withparams}}%
+        \only<4>{\includegraphics[height=1.75in]{topology/pht/lsfilt-all}}%
+        \only<5>{\includegraphics[height=1.75in]{topology/pht/lsfilt-module}}%
+        \only<6-8>{\includegraphics[height=1.75in]{topology/pht/lsfilt-barcode}}%
+        \only<9-10>{\includegraphics[height=1.75in]{topology/pht/lsfilt-index}}%
+        \only<11->{\includegraphics[height=1.75in]{topology/pht/lsfilt-index-barcode}}%
+    \end{block}%
+    \only<1-6,9>{\onslide<11->{%for spacing
+        \begin{block}{The Persistence Barcode/Diagram}
+            As a multi-set: \hspace{0.5ex}$\{ [h(a),\infty), [h(b),h(c)) \}$.\\
+        \onslide<10->{Substitution:  \hspace{1ex}       $\{
+                [~a_y~~,\infty),[~a_y~~,~~c_y~~), [~c_y~~,~~c_y~~)
+            \}$.}%placeholder
+        \end{block}
+        }
+    }%
+    \only<7-8>{
+        \begin{block}{The Persistence Diagram}
+            As a multi-set: \hspace{0.5ex}$D(\uparrow)=D(\uparrow,K)=  \{ [h(a),\infty),
+            [h(\only<7>{b}\only<8>{a}),h(c)) \}$.\\
+        \onslide<8->{ \hspace{2.05in}
+            $ = \{
+                [~a_y~~,\infty),[~a_y~~,~~c_y~~) \}$.}%
+        \end{block}
+    }%
+    \only<10->{
+        \begin{block}{The Verbose Persistence Diagram}
+            Index Diagram: \hspace{0.5ex}$\{ [i(a),\infty), [i(b),i(bc)),[i(c),i(ac)) \}$.\\
+            \onslide<11->{
+            VPD:  \hspace{1.5ex}       $ \hat{D}(\uparrow) =
+            \{ [~a_y~~,\infty),[~a_y~~,~~c_y~~), [~c_y~~,~~c_y~~) \}$.
+        }
+    \end{block}
+    }%
+}
+
+\frame{
+    \frametitle{Invertible?}
+
+    \pause
+    \begin{block}{}
+        \input{../figs/topology/inverse/shotglassworm.tex}
+    \end{block}
+}

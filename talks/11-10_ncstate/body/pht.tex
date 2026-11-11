@@ -1,0 +1,157 @@
+\begin{frame}{Persistent Homology Transform (PHT)}
+    \centering
+    \animategraphics[loop,autoplay,width=.6\linewidth]{10}{topology/pht/animation/animation-}{0}{98}
+\end{frame}
+
+\frame{
+    \frametitle{Defining the PHT, 2013}
+\begin{block}{}
+\centering
+	\begin{itemize}
+		\item Turner, Mukherjee, and Boyer show that a set of
+                    persistence diagrams uniquely represents three-dimensional
+                    shapes.\footnote{\scriptsize{Turner,
+                    Mukherjee, and Boyer. Persistent Homology Transform for
+                    Modeling Shapes and Surfaces. Information and Inference: A
+                    Journal of the IMA, 3(4), 310-344, 2014.  Preprint:
+                    arXiv:1310.1030, 2013.}}
+                \item Method: locate vertices, then links.
+                \item \bf{With all (infinite) directions, we have faithful
+                representation}.
+	\end{itemize}
+\end{block}
+}
+
+
+\frame{
+    \frametitle{PHT is Faithful}
+
+    \begin{block}{The PHT}
+        Let $K$ be a shape in $\R^d$.
+        $$PHT(K) := \left\{ \left(s, D(s,K)\right) \right\}_{s \in \S^{d-1}}.$$
+    \end{block}
+
+    \pause
+
+    \begin{block}{Theorem}
+        No two distinct shapes have the same PHT (nor ECT).
+    \end{block}
+}
+
+
+\frame{
+    \frametitle{Five Years Later ...}
+    \begin{block}{}
+        \begin{itemize}
+            \item RLB, BTF, RM, SM, DLM, DS, AS, LW. {Learning Simplicial
+                Complexes from Persistence Diagrams}. CCCG, 2018.
+            \item Curry, Mukherjee, and Turner. ``How
+                many directions determine a shape and other sufficiency results
+                for two topological transforms.'' Trans AMS B (2022): 1006--1043.
+            \item Ghrist, Levanger, and Mai. ``Persistent
+                homology and Euler integral transforms.'' J.\ Applied and
+                Computational Topology 2.1-2 (2018): 55--60.
+            \item (and a couple more recent papers)
+        \end{itemize}
+    \end{block}
+}
+
+\frame<1-8>[label=faithfuldisc]{
+    \frametitle{Faithful Discretization}
+
+    \begin{columns}
+        \column{.45\textwidth}
+            \begin{block}{Discretization}
+                \onslide<2->{Let $S \subseteq \S^{d-1}$.}
+                $$
+                   \onslide<3->{\mathcal{S} = \left\{ \big( s,}%
+                   \onslide<1->{D(s,K)}%
+                   \onslide<3->{\big) \right\}_{s \in S} }%
+                $$
+            \end{block}
+
+            \onslide<4->{
+            \begin{block}{Faithful}
+                $\mathcal{S}$ is \emph{faithful} if invertible.
+            \end{block}
+            }
+
+            \onslide<5->{
+            \begin{block}{Minimum Faithful Set}
+                $\mu(K)$ is the size of the smallest faithful discretization
+                of~$PHT(K)$.
+            \end{block}
+            }
+
+        \column{.45\textwidth}
+            \centering
+            \only<6>{\includegraphics[height=1.5in]{topology/pht/ex-v-rep-init}}%
+            \only<7>{\includegraphics[height=1.5in]{topology/pht/ex-v-rep-full}}%
+            \only<8>{\includegraphics[height=1.5in]{topology/pht/ex-v-rep-pht}}%
+            \only<9>{\includegraphics[height=1.5in]{topology/pht/ex-v-rep-pht-guidelines}}%
+            \only<10->{\includegraphics[height=1.5in]{topology/pht/ex-v-rep-apht-guidelines}}%
+    \end{columns}
+}
+
+
+\frame{
+    \frametitle{Necessary Perpendicular Directions}
+
+    \begin{theorem}{}
+        Let $K$ be a simplicial complex in $\R^d$ and $\sigma$ a maximal
+        simplex.
+        \pause
+        Then, a faithful set must use at least $d-\dim{\sigma}+1$ directions perpendicular to
+        $\sigma$.
+    \end{theorem}
+
+}
+
+
+\frame<1-4>{
+    \frametitle{Tricky Elbows}
+
+    \begin{columns}
+        \column{\textwidth}
+        \centering
+        \begin{block}{}
+            \only<1>{\includegraphics[height=2in]{topology/pht/observability-nobend}}%
+            \only<2>{\includegraphics[height=2in]{topology/pht/observability-bend}}%
+            \only<3>{\includegraphics[height=2in]{topology/pht/observability}}%
+            \only<4>{\includegraphics[height=2in]{topology/pht/observability-flatter}}%
+            \only<5->{\includegraphics[height=2in]{topology/pht/observability-tri}}%
+        \end{block}
+
+    \end{columns}
+    }
+
+
+\frame{
+    \frametitle{Counting Directions}
+
+    \begin{block}{}
+    \begin{columns}
+        \column{.5\textwidth}
+            \centering
+            \only<1-2>{\includegraphics[height=1.5in]{topology/pht/ex-v-perp-necc}}%
+            \only<3->{\includegraphics[height=1.5in]{topology/pht/ex-v-rep-pht-guidelines}}%
+        \column{.5\textwidth}
+            \centering
+            \only<2->{\includegraphics[height=1.5in]{topology/pht/ex-v-alt}}%
+    \end{columns}
+    \end{block}
+}
+
+\frame<1-2>[label=triangles]{
+    \frametitle{How Many Directions do We Need?}
+
+    \begin{block}{}
+        \centering
+        \includegraphics[width=\textwidth]{topology/pht/construction-edges}
+        \begin{itemize}
+            \pause \item $25$ persistence diagrams necessary.
+            \pause \item $3$ verbose persistence diagrams necessary \& sufficient.
+            \pause \item $\epsilon$-net approach: $> 1$k diagrams.
+        \end{itemize}
+    \end{block}
+}

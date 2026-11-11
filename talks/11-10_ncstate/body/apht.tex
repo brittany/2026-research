@@ -1,0 +1,229 @@
+\againframe<6,9->{augpd}
+
+\frame{
+    \frametitle{Heights of Simplices From the VPD}
+    \begin{corollary}{}
+        The VPD tells us the multiset of vertex (and simplex) heights.
+    \end{corollary}
+}
+
+\frame{
+\frametitle{Coordinates of One Point}
+\begin{block}{}
+\centering
+    \only<1>{\includegraphics[width=.5\textwidth]{topology/pht/example-1v-0d}}%
+    \only<2>{\includegraphics[width=.5\textwidth]{topology/pht/example-1v-1d}}%
+    \only<3>{\includegraphics[width=.5\textwidth]{topology/pht/example-1v-2d}}%
+\end{block}
+}
+
+\frame[label=vertalgo]{
+\frametitle{Finding Multiple Points}
+\begin{block}{}
+\centering
+    \only<1>{\includegraphics[width=.5\textwidth]{topology/pht/example-complex}}%
+    \only<2>{\includegraphics[width=.5\textwidth]{topology/pht/example-dOne}}%
+    \only<3>{\includegraphics[width=.5\textwidth]{topology/pht/example-dTwo}}%
+    \only<4>{\includegraphics[width=.5\textwidth]{topology/pht/example-dTwo-With}}%
+    \only<5->{\includegraphics[width=.5\textwidth]{topology/pht/example-dThreeVertices}}
+\end{block}
+}
+
+
+\frame<1->[label=outline]{
+    \frametitle{Oracle-Based Reconstruction of $K \subset \R^d$}
+    \begin{columns}
+        \column{.45\textwidth}
+        \pause
+        \begin{block}{Vertices}
+            \begin{enumerate}
+                \item {$d+1$ directions}
+                \item {$\Theta(d)$ directions}
+            \end{enumerate}
+        \end{block}
+        \pause
+        \begin{block}{Edges}
+            \begin{enumerate}
+                \item {$n_0^2-n_0$ directions}
+                \item {$O(n_1 \log n_0)$ directions}
+            \end{enumerate}
+        \end{block}
+        \pause
+        \begin{block}{High Dimensional Simplices}
+            \begin{enumerate}
+                \item {$O(nn_0 2^k+d)$ directions}
+            \end{enumerate}
+        \end{block}
+        \footnotetext{$k=dim(K)$; $n_i=\#K_i$; $n_*=\#K$}
+        \column{.45\textwidth}
+        \pause
+        \begin{block}{References}
+            \scriptsize
+            \begin{itemize}
+                \item RLB, BTF, RM, SM, DLM DS, AS, JS, LW.
+                    Learning Simplicial Complexes from Persistence Diagrams.
+                    CCCG 2018.
+                \item RLB, BTF, RM, SM, DLM DS, AS, JS,
+                    LW.  Reconstructing Embedded Graphs from
+                    Persistence Diagrams. CGTA 2020.
+                \item BTF, SM, DLM, AS, LW. Efficient Graph Reconstruction
+                    and Representation Using Augmented Persistence Diagrams. CCCG 2022.
+                \item BTF, SM, DLM, AS, LW. A Faithful Discretization of the
+                    Persistent Homology Transform. ArXiv:1912.12759.
+                \item TO, AS. Sweeping Orders for Simplicial Complex Reconstruction
+                    ArXiv:2501.01901.
+            \end{itemize}
+        \end{block}
+    \end{columns}
+    }
+
+
+
+\frame{
+    \frametitle{\onslide<3->{(Not)} Combinatorially Equivalent Diagrams}
+
+    \centering
+    \begin{columns}
+        \column{.45\textwidth}
+        \begin{block}{Direction $\uparrow$}
+            \centering
+            {\includegraphics[height=1in]{topology/pht/upV-dirs}}%
+            \only<1>{
+            $$a_y=b_y < c_y$$
+            $$D(\uparrow)=\{ (a_y,\infty), (a_y,c_y) \} $$
+            }%
+            \only<2->{
+                $$ [1]=[a]=[b] < [2]=[c] $$
+            $$D(\uparrow)=\{ ([1] ,\infty), ([1] ,[2]) \} $$
+            }%
+        \end{block}
+
+        \onslide<3->{
+        \column{.45\textwidth}
+        \begin{block}{Direction \rotatebox{-20}{$\uparrow$}}
+            \centering
+            {\includegraphics[height=1in]{topology/pht/upV-dirt}}%
+            $$ [1]=[a] < [2]=[b] < [3]=[c]$$
+            $$D(\rotatebox{-20}{$\uparrow$})=\{ ([1],\infty), ([2],[3]) \} $$
+        \end{block}
+    }
+    \end{columns}
+
+    \footnotetext{
+        McCleary, Patel. Edit distance and persistence diagrams over
+            lattices. SIAM Journal on Applied Algebra and Geometry,
+            6(2):134–155, 2022.
+    }
+}
+
+\againframe{triangles}
+
+\frame[label=strat]{
+    \frametitle{Combinatorial Persistent Homology Transform}
+
+    \centering
+    \begin{columns}
+        \column{.45\textwidth}
+        \begin{block}{Complex}
+            \centering
+            \only<1>{\includegraphics[height=1.5in]{topology/pht/upV-cplx}}%
+            \only<2->{\includegraphics[height=1.5in]{topology/pht/ex-3d-cplx}}%
+        \end{block}
+
+        \column{.45\textwidth}
+        \begin{block}{Stratification}
+            \centering
+            \only<1>{\includegraphics[height=1.5in]{topology/pht/ex-v-lines}}%
+            \only<2->{\includegraphics[height=1.5in]{topology/pht/ex-3d-strat}}%
+        \end{block}
+    \end{columns}%
+
+    \footnote{
+        BTF, Patel. Combinatorial Persistent Homology Transform. Published in
+        FODS.}
+}
+
+\frame{
+    \frametitle{Finite Representation}
+
+    \centering
+    \onslide<1->{\includegraphics[height=1.5in]{topology/pht/ex-v-lines}}%
+    \onslide<1->{\includegraphics[height=1.5in]{topology/pht/ex-3d-strat}}%
+
+    \begin{block}{}
+        \begin{itemize}
+            \item \pause Known stratification \pause (e.g., given vertices)
+            \item \pause One PD per strata
+        \end{itemize}
+    \end{block}
+}
+
+\frame<1->[label=counting]{
+    \frametitle{Theory Versus Practice}
+
+    \begin{block}{Theory}
+        \begin{itemize}
+            \item Reconstruction approach: $O(n_*n2^k+d)$ VPD
+            \item One PD per stratum: $\Theta(n^{d-1})$ in $\S^{d-1} \subset \R^d$
+            \item $\epsilon$-net approach: many more
+            \item but ... less are actually needed
+        \end{itemize}
+    \end{block}
+}
+
+\frame{
+    \frametitle{``Small'' Samples Work}
+
+    \begin{block}{}
+        \begin{itemize}
+            \pause
+        \item $64$ directions in $\R^3$ and $162$ in $\R^3$ for
+            {\color{blue}MDS} with PD (Turner,
+                Mukherjee, Boyer; 2013.)
+            \pause
+        \onslide<3->{\item $32$ directions in $\R^2$ for
+            {\color{blue}classification} with
+                PD (Hofer et al.; 2017)\footnote{
+                Hofer, Kwitt, Niethammer, and Uhl. ``Deep learning with
+                topological signatures.'' NeurIPS 30 (2017).}}
+            \pause
+        \onslide<4->{\item $72$ directions in $\R^2$ for
+            {\color{blue}regressoin/prediction} with SECT (Crawford et
+                al.; 2019)\footnote{Lorin Crawford, Anthea Monod, Andrew X Chen, Sayan Mukherjee, and Raúl
+                Rabadán. 2019. Predicting Clinical Outcomes in Glioblastoma: an Application of
+                Topological and Functional Data Analysis. J. Amer. Statist. Assoc. (2019),
+                1–12.}}
+        \end{itemize}
+    \end{block}
+}
+
+
+\frame{
+    \frametitle{Too Many / Too Few}
+
+    \begin{columns}
+        \column{.45\textwidth}
+
+        \begin{block}{}
+            \begin{itemize}
+                \item Shapes in $\R^2$
+                \item $10$-$70$ vertices
+                \item Random, MNIST, MPEG7
+            \end{itemize}
+        \end{block}
+
+        \column{.45\textwidth}
+
+        \pause
+        \begin{block}{$\epsilon$-Sample}
+            Over 100k directions needed.
+        \end{block}
+
+        \pause
+        \begin{block}{Random Subsampling}
+            Even with $>16$k directions, we miss more than~10\% of the~$\Theta(n_0^{d-1})$ strata.
+        \end{block}
+    \end{columns}
+
+    \footnotetext{Experiments in collaboration with David Millman and CompTaG students.}
+}
