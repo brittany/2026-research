@@ -2,26 +2,22 @@
 
 ## TODO: today-ish
 
+* Class: add module 4 to website
 * Class: 
     - update exam 1 grades
-    - grade quizzes
     - update worksheet typos
     - link worksheets to class schedule
-* Papers: DIWECT: related work (read/edit)
-* Grants: 
-    - email my lab and industry partners
 * Service: IEEE IT review submitted 
-* Service: FWCG complete remaining review
+* Personal: order piano books
+* NC State talk
 
 ## TODO: week-ish
 
-* Class: scan attendance
-* Class: add module 4 to website
+* Papers: DIWECT: add counter-example 
 * Grants: Overdue Reports!
 * Paper: software: figure 1 email and payment
 * Other Research:
     - geomtom: start at def 2 (steiner sym)
-* NC State chat
 
 ## TODO: month-ish
 
@@ -30,6 +26,17 @@
 * (Nov 25) promotion candidate for MT Tech
 
 ## TODO: long-term
+
+* (Dec 15) letter for Alex O
+
+## Done late oct / early november 
+
+* Grants: 
+    - email my lab and industry partners
+* Class:
+    - grade quizzes
+* Class: scan attendance
+* Service: FWCG complete remaining review
 
 ## Done: 28 October 2026
 

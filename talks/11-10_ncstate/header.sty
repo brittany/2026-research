@@ -1,0 +1,41 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{header}[2019/02/01 header package for slides]
+
+\definecolor{newcol}{HTML}{42E393}    % embedded spheres fill color
+
+% Style: TikZ (start)
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{animate}
+\usetikzlibrary{calc,arrows.meta,decorations.markings}
+\newcommand\minn[1]{
+\draw[draw=blue,fill=white,thick] (#1) circle (.1);
+\draw[draw=blue,fill=white,thick] (#1) circle (.05);
+}
+\newcommand\sadd[1]{
+\draw[dgren,fill=white,thick] (#1) circle (.1);
+\foreach \r in {0,90,180,270}{
+  \draw[dgren,thick] (#1)--++(\r:.1);
+}
+}
+\newcommand\maxx[1]{
+\draw[draw=red,fill=white,thick] (#1) circle (.1);
+\fill[fill=red] (#1) circle (.05);
+}
+\newcommand\spacer{16pt}      % for neighborhood spacing of moves
+\newcommand\twospacer{32pt}   % twice the previous
+\newcommand\elen{1.4}         % for edge length of moves
+\newcommand\bwid{.3}          % bar width for embedding pictures
+\newcommand\hfactor{8}        % spacing factor for embedding pictures
+\newcommand\levelspacer{1.2}   % spacing factor for exploded nesting poset analysis
+
+\tikzset{                     % barcode styles
+  barco/.style={line width=1pt,{Circle[sep=-2.5pt,width=5pt,length=5pt]}-{Circle[open,sep=-2.5pt,width=5pt,length=5pt]}},
+  barcc/.style={line width=1pt,{Circle[sep=-2.5pt,width=5pt,length=5pt]}-{Circle[sep=-2.5pt,width=5pt,length=5pt]}},
+  barcinf/.style={line width=1pt,{Circle[sep=-2.5pt,width=5pt,length=5pt]}-{Straight Barb[width=6pt,length=3pt]}},
+  barcinfo/.style={line width=1pt,{Circle[open,sep=-2.5pt,width=5pt,length=5pt]}-{Straight Barb[width=6pt,length=3pt]}},
+  infb/.style={line width=1pt,{Straight Barb[width=6pt,length=3pt]}-{Straight Barb[width=6pt,length=3pt]}},
+  levels/.style={white, line width=4pt, fill=newcol},
+  conx/.style={line width=1.5pt,decoration={markings,mark=at position 0.5 with \arrow{Straight Barb[width=6pt,length=3pt]}},postaction=decorate}
+}
+% Style: TikZ (end)
