@@ -2,7 +2,7 @@
 
 ## TODO: today-ish
 
-* Grant: Submit LOI
+* Paper: refine faithfull counterexample 
 * Class: create worksheet
 * Class: add module 4 to website
 * Class: update exam 1 grades
@@ -20,6 +20,7 @@
 * Other Research:
     - geomtom: start at def 2 (steiner sym)
 * Service: send recruit emails
+* Research: complex distance (read-through)
 
 ## TODO: month-ish
 
@@ -31,4 +32,6 @@
 
 * (Dec 15) letter for Alex O
 
-## Done: 1-6 November 
+## Done: 1-18 November 
+
+* Grant: Submit LOI
